@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title User List
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .user {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+      }
+      .underage {
+        background-color: #FFCCCC;
+      }
+      .badge {
+        display: inline-block;
+        padding: 5px;
+        background-color: #28A745;
+        color: white;
+        border-radius: 3px;
+        margin-left: 10px;
+      }
+  body
+    h1 User List
+    each user in users 
+      .user(class={ underage: user.age < 18 })
+        h2= user.name
+        if user.status === 'active'
+          span.badge Active
+        p Age: #{ user.age < 18 ? user.age : 'Hidden' }
